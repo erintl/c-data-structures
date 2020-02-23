@@ -21,5 +21,8 @@ bool pushStack(STACK *stack, void *data);
 void *popStack(STACK *stack);
 void *stackTop(STACK *stack);
 bool emptyStack(STACK *stack);
+bool fullStack(STACK *stack);
+int stackCount(STACK *stack);
+STACK *destroyStack(STACK *stack);
 
 #endif //C_DATA_STRUCTURES_STACK_H

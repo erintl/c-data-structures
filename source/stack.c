@@ -82,3 +82,50 @@ void *stackTop(STACK *stack) {
 bool emptyStack(STACK *stack) {
     return stack->count == 0;
 }
+
+/**
+ * Returns true if the stack is full (the heap is full and no additional nodes can be allocated); otherwise
+ * false is returned.
+ *
+ * @param stack the stack to check
+ * @return true if the stack is full; false otherwise
+ */
+bool fullStack(STACK *stack) {
+    STACK_NODE *temp;
+    if ((temp = (STACK_NODE *)malloc(sizeof(STACK_NODE)))) {
+        free(temp);
+        return false;
+    }
+    return true;
+}
+
+/**
+ * Returns the number of elements in the stack.
+ *
+ * @param stack the stack to check
+ * @return the number of elements in the stack
+ */
+int stackCount(STACK *stack) {
+    return stack->count;
+}
+
+/**
+ * Destroys the provided stack and free the associated memory
+ *
+ * @param stack
+ * @return NULL if successful
+ */
+STACK *destroyStack(STACK *stack) {
+    STACK_NODE *temp;
+
+    if (stack) {
+        while (stack->top != NULL) {
+            free(stack->top->data);
+            temp = stack->top;
+            stack->top = stack->top->link;
+            free(temp);
+        }
+        free(stack);
+    }
+    return NULL;
+}
