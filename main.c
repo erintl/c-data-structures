@@ -1,36 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "header/list.h"
+#include "header/tree.h"
 
+void createNode(BST_TREE *tree, int number);
 int compare(void *arg1, void *arg2);
+void printNode(void *data);
 
 int main() {
+    int key = 3;
+
+    BST_TREE *tree;
+    tree = bstCreate(compare);
+
+    createNode(tree, 5);
+    createNode(tree, 2);
+    createNode(tree, 1);
+    createNode(tree, 0);
+    createNode(tree, 3);
+    createNode(tree, 4);
+    createNode(tree, 8);
+    createNode(tree, 6);
+    createNode(tree, 9);
+    createNode(tree, 10);
+    createNode(tree, 7);
+
+    bstTraverse(tree, printNode);
+
+    bstDestroy(tree);
+}
+
+void createNode(BST_TREE *tree, int number) {
     int *value;
-    int found;
-    LIST *list;
-    list = createList(compare);
-
-    for (int i = 0; i < 10; i++) {
-        value = (int *)malloc(sizeof(int));
-        *value = i;
-        addNode(list, value);
-        printf("List count: %d\n", listCount(list));
-    }
-
-    int j = 0;
-    while (traverse(list, j, (void *)&value)){
-        printf("The traversed value is: %d\n", *value);
-        j++;
-    }
-
-
-    destroyList(list);
-//    for (int k = 0; k < 10; k++) {
-//        found = removeNode(list, (void *)&k, (void *)&value);
-//        printf("Remove found: %d, value: %d\n", found, *value);
-//        printf("List count: %d\n", listCount(list));
-//        free(value);
-//    }
+    value = (int *)malloc(sizeof(int));
+    *value = number;
+    bstInsert(tree, value);
+    printf("List count: %d\n", bstCount(tree));
 }
 
 int compare(void *arg1, void *arg2) {
@@ -47,4 +51,8 @@ int compare(void *arg1, void *arg2) {
         result = 0;
     }
     return result;
+}
+
+void printNode(void *data) {
+    printf("The node value is: %d\n", *(int *)data);
 }
