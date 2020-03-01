@@ -1,41 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "header/tree.h"
+#include "header/heap.h"
 
-void createNode(BST_TREE *tree, int number);
 int compare(void *arg1, void *arg2);
-void printNode(void *data);
+void printArray(int *values, int size);
+void reverseArray(int *values, int size);
 
 int main() {
-    int key = 3;
+    int size = 10;
+    int *values;
 
-    BST_TREE *tree;
-    tree = bstCreate(compare);
+    values = (int *)calloc(10, sizeof(int));
 
-    createNode(tree, 5);
-    createNode(tree, 2);
-    createNode(tree, 1);
-    createNode(tree, 0);
-    createNode(tree, 3);
-    createNode(tree, 4);
-    createNode(tree, 8);
-    createNode(tree, 6);
-    createNode(tree, 9);
-    createNode(tree, 10);
-    createNode(tree, 7);
+    for (int i = 0; i < 10; i++) {
+        values[i] = i + 1;
+    }
 
-    bstTraverse(tree, printNode);
-
-    bstDestroy(tree);
+    printArray(values, size);
+    reverseArray(values, size);
+    printArray(values, size);
+    free(values);
 }
 
-void createNode(BST_TREE *tree, int number) {
-    int *value;
-    value = (int *)malloc(sizeof(int));
-    *value = number;
-    bstInsert(tree, value);
-    printf("List count: %d\n", bstCount(tree));
+void printArray(int *values, int size) {
+    for (int i = 0; i < size; i++) {
+        printf("value[%d]: %d\n", i, values[i]);
+    }
 }
+
+void reverseArray(int *values, int size) {
+    int temp = 0;
+    for (int i = 0; i < (size - 1) / 2; i++) {
+        temp = values[i];
+        values[i] = values[size - i - 1];
+        values[size - i - 1] = temp;
+    }
+}
+
 
 int compare(void *arg1, void *arg2) {
     int result;
@@ -51,8 +52,4 @@ int compare(void *arg1, void *arg2) {
         result = 0;
     }
     return result;
-}
-
-void printNode(void *data) {
-    printf("The node value is: %d\n", *(int *)data);
 }
