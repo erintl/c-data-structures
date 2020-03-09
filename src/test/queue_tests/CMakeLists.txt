@@ -1,0 +1,3 @@
+add_executable(queue_test_app queue_test.c)
+target_link_libraries(queue_test_app dataStructures unity)
+add_test(queue_tests queue_test_app)

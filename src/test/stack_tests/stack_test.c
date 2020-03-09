@@ -95,7 +95,7 @@ void popStack_removesElementsFromStackInLifoOrder() {
 void popStack_returnsNullIfEmpty() {
     int *element;
 
-    element = popStack(stack);
+    element = (int *)popStack(stack);
 
     TEST_ASSERT_NULL(element);
 }
@@ -124,7 +124,7 @@ void stackTop_returnsTopElementValue() {
 void stackTop_returnsNullIfEmpty() {
     int *element;
 
-    element = stackTop(stack);
+    element = (int *)stackTop(stack);
 
     TEST_ASSERT_NULL(element);
 }

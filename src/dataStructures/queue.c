@@ -41,13 +41,13 @@ bool enqueue(QUEUE *queue, void *item) {
     } else {
         queue->rear->next = newNode;
     }
-    (queue->count)++;
+    queue->count++;
     queue->rear = newNode;
     return true;
 }
 
 /**
- * Queues an item from the queue
+ * Dequeues an item from the queue
  *
  * @param queue the queue to retrieve an item from
  * @param item  the item to be retrieved
@@ -68,7 +68,7 @@ bool dequeue(QUEUE *queue, void **item) {
     } else {
         queue->front = queue->front->next;
     }
-    (queue->count)--;
+    queue->count--;
     free(node);
     return true;
 }
@@ -119,12 +119,12 @@ bool emptyQueue(QUEUE *queue) {
  */
 bool fullQueue(QUEUE *queue) {
     QUEUE_NODE *node;
-    node = (QUEUE_NODE *)malloc(sizeof(QUEUE_NODE));
+    node = (QUEUE_NODE *)malloc(sizeof(*(queue->front)));
     if (node) {
         free(node);
-        return true;
+        return false;
     }
-    return false;
+    return true;
 }
 
 /**

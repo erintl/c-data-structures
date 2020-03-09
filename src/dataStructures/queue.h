@@ -16,7 +16,7 @@ typedef struct queue {
 } QUEUE;
 
 // function prototypes
-QUEUE *createQueue(void);
+QUEUE *createQueue();
 QUEUE *destroyQueue(QUEUE *queue);
 bool dequeue(QUEUE *queue, void **item);
 bool enqueue(QUEUE *queue, void *item);
