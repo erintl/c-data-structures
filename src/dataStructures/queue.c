@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "../header/queue.h"
+#include "queue.h"
 
 /**
  * Allocates and returns a queue head node

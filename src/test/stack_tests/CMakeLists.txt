@@ -1,0 +1,3 @@
+add_executable(stack_test_app stack_test.c)
+target_link_libraries(stack_test_app dataStructures unity)
+add_test(stack_tests stack_test_app)

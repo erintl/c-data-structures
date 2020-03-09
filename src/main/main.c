@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "header/heap.h"
+#include "../dataStructures/heap.h"
 
 int compare(void *arg1, void *arg2);
 void printArray(int *values, int size);

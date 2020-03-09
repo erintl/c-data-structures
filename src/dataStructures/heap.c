@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "../header/heap.h"
+#include "heap.h"
 
 /**
  * Creates a new heap data structure

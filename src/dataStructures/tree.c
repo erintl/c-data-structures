@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../header/tree.h"
+#include "tree.h"
 
 /**
  * Creates a new BST tree

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../header/list.h"
+#include "list.h"
 
 /**
  * Creates a list

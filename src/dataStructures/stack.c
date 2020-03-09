@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "../header/stack.h"
+#include "stack.h"
 
 /**
  * Creates a new stack
@@ -33,7 +33,7 @@ bool pushStack(STACK *stack, void *data) {
     node->data = data;
     node->link = stack->top;
     stack->top = node;
-    (stack->count)++;
+    stack->count++;
     return true;
 }
 
@@ -54,7 +54,7 @@ void *popStack(STACK *stack) {
         data = stack->top->data;
         stack->top = stack->top->link;
         free(temp);
-        (stack->count)--;
+        stack->count--;
     }
     return data;
 }

@@ -9,8 +9,7 @@ typedef struct node {
     struct node *link;
 } STACK_NODE;
 
-typedef struct stack
-{
+typedef struct stack {
     int count;
     STACK_NODE *top;
 } STACK;

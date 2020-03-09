@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../header/stack.h"
-#include "../header/stack_examples.h"
+#include "stack.h"
+#include "stack_examples.h"
 
 void decimalToBinary() {
     int *number;
