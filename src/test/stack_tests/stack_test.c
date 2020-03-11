@@ -3,7 +3,7 @@
 #include "stack.h"
 
 // Global test variables
-STACK *stack;
+static STACK *stack;
 
 // test function prototypes
 void createStack_createsEmptyStack();

@@ -1,0 +1,3 @@
+add_executable(list_test_app list_test.c)
+target_link_libraries(list_test_app dataStructures unity)
+add_test(list_tests list_test_app)

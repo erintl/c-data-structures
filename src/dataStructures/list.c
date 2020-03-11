@@ -203,7 +203,6 @@ LIST *destroyList(LIST *list) {
  * @param curNode the node having the specified key
  * @param key the key of the node to find
  * @return true if found; false otherwise
- * @return true if found; false otherwise
  */
 static bool _search(LIST *list, NODE **preNode, NODE **curNode, void *key) {
     int result;
@@ -263,7 +262,7 @@ static bool _insert(LIST *list, NODE *preNode, void *data) {
             list->rear = newNode;
         }
     }
-    (list->count)++;
+    list->count++;
     return true;
 }
 
@@ -286,6 +285,6 @@ void _delete(LIST *list, NODE *preNode, NODE *curNode, void **dataOut) {
     if (curNode->link == NULL) {
         list->rear = preNode;
     }
-    (list->count)--;
+    list->count--;
     free(curNode);
 }
